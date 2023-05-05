@@ -1,6 +1,6 @@
 let myFavorites = [];
 
-const postFav = (req, res) => {
+const postFav = async (req, res) => {
   try {
     const character = req.body;
     const characterFound = myFavorites.find(fav => fav.id === character.id);
@@ -8,6 +8,11 @@ const postFav = (req, res) => {
     if (characterFound) throw Error("Personaje repetido");
         
     myFavorites.push(character);
+    //CREATE
+    // const char = await Favorite.create(character)
+    // const favorites= await Favorite.findAll();
+    // return res.status(200).json(char);
+
     return res.status(200).json(myFavorites);
     
     
@@ -22,6 +27,14 @@ const deleteFav = (req, res) => {
 
   myFavorites = myFavorites.filter((favorite) => favorite.id !== +id);
   return res.status(200).json(myFavorites);
+  // DESTROY
+  // const char =  await Favorite.findByPk(id)
+  // if(char){
+  //   await Favorite.destroy({
+  //     where: {id
+  //     }
+  //   })
+  // }
 };
 
-module.exports = { postFav, deleteFav };
+// module.exports = { postFav, deleteFav };

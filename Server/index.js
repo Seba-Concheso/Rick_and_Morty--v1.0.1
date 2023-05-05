@@ -3,6 +3,7 @@ const server = express();
 const router = require("./src/routes/index");
 const morgan = require("morgan");
 const port = 3001;
+const {conn}= require("./src/dataBase/DB_connection");
 
 server.use(express.json());
 server.use(morgan("dev"));
@@ -17,8 +18,9 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use("/rickandmorty", router);
+server.use("/rickandmorty", router); 
 
-server.listen(port, () => {
+server.listen(port, async () => {
   console.log(`Server listening at ${port}`);
+  await conn.sync({force: true});
 });
