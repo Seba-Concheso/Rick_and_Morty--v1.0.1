@@ -2,10 +2,10 @@ const { User } = require("../dataBase/DB_connection");
 const Favorite = require("../models/Favorite");
 
 const postFav = async (req, res) => {
+  console.log(req.body);
   const { name, origin, status, image, species, gender } = req.body;
   try {
-    if (!name || !origin || !status || !image || !species || !gender)
-      return res.status(400).json({ message: "Faltan datos." });
+    if (!name || !origin || !status || !image || !species || !gender) return res.status(400).json({ message: "Faltan datos." });
 
     const [fav, created] = await Favorite.findOrCreate({
       where: { name, origin, status, image, species, gender },

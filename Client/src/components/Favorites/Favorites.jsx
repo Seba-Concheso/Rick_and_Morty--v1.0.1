@@ -1,4 +1,4 @@
-import Card from "../Card/Card";
+import Card from "../Card/Character";
 import { connect } from "react-redux";
 import { filterCards, orderCards } from "../../redux/actions";
 import { useDispatch } from "react-redux";
@@ -15,7 +15,7 @@ const Favorites = ({ myFavorites }) => {
   const handleFilter = (event) => {
     dispatch(filterCards(event.target.value));
   };
-
+  console.log(myFavorites);
   return (
     <div>
       <select onChange={handleOrder}>

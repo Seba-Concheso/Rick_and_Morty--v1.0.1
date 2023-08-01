@@ -24,25 +24,16 @@ const Form = ({ login }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     login(userData);
+    console.log(userData);
   };
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          value={userData.email}
-          onChange={handleChange}
-        />
+        <input type="email" name="email" value={userData.email} onChange={handleChange} />
         {errors.email && <p>{errors.email}</p>}
         <label htmlFor="password">Password</label>
-        <input
-          type="text"
-          name="password"
-          value={userData.password}
-          onChange={handleChange}
-        />
+        <input type="text" name="password" value={userData.password} onChange={handleChange} />
         {errors.password && <p>{errors.password}</p>}
 
         <button type="submit">Submit</button>
