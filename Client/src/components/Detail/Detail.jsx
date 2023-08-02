@@ -26,7 +26,7 @@ const Detail = () => {
     <Container>
       <Row className="justify-content-center">
         <Col xs={12} sm={8} md={6} lg={6}>
-          <Card className=" text-dark" style={{ fontSize: "24px", fontWeight: "bold" }}>
+          <Card className=" text-light bg-dark" style={{ fontSize: "24px", fontWeight: "bold" }}>
             <Card.Img src={character?.image} alt="Card image" />
             <Card.Body>
               <Card.Title style={{ fontSize: "28px", fontWeight: "bold" }}>{character?.name}</Card.Title>
